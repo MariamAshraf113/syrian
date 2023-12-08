@@ -40,7 +40,8 @@ class ClientController extends Controller
     public function edit($id)
     {
         $client = Client::findOrFail($id);
-        return view('edit', compact('client'));
+        $governments = $this->getEgyptGovernments(); 
+        return view('edit', compact('client', 'governments'));
     }
 
     public function update(Request $request, $id)
